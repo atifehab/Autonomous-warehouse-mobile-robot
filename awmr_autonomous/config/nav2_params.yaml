@@ -1,0 +1,27 @@
+controller_server:
+  ros__parameters:
+    controller_frequency: 10.0
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+      max_vel_x: 0.25
+      min_vel_x: 0.05
+      max_vel_theta: 1.0
+
+local_costmap:
+  ros__parameters:
+    global_frame: odom
+    robot_base_frame: base_link
+    resolution: 0.05
+    robot_radius: 0.22
+    observation_sources: scan
+    scan:
+      topic: /scan
+      marking: true
+      clearing: true
+
+global_costmap:
+  ros__parameters:
+    global_frame: map
+    robot_base_frame: base_link
+    resolution: 0.05
+    robot_radius: 0.22
